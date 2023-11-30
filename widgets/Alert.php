@@ -7,8 +7,8 @@
 
 namespace dmstr\widgets;
 
-use yii\bootstrap\Alert as BootstrapAlert;
-use yii\bootstrap\Widget;
+use yohantoro\yii2\bootstrap3\Alert as BootstrapAlert;
+use yohantoro\yii2\bootstrap3\Widget;
 
 /**
  * Alert widget renders a message from session flash for AdminLTE alerts. All flash messages are displayed
