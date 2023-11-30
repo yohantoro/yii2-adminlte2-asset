@@ -1,6 +1,6 @@
 {
-    "name": "dmstr/yii2-adminlte-asset",
-    "description": "AdminLTE backend theme asset bundle for Yii 2.0 Framework",
+    "name": "yohantoro/yii2-adminlte-asset",
+    "description": "Forked Version of AdminLTE backend theme asset bundle for Yii 2.0 Framework",
     "type": "yii2-extension",
     "keywords": ["yii2","extension","adminlte","admin","theme","backend","asset","css","less"],
     "license": "BSD-3-Clause",
@@ -16,19 +16,14 @@
     ],
     "require": {
         "yiisoft/yii2": "2.*",
-        "yiisoft/yii2-bootstrap": "~2.0.0",
         "cebe/yii2-gravatar": "1.*",
         "almasaeed2010/adminlte": "^2.4.0",
-        "rmrevin/yii2-fontawesome": "~2.9"
+        "rmrevin/yii2-fontawesome": "~2.9",
+        "yohantoro/yii2/bootstrap3": "*"
     },
     "autoload": {
         "psr-4": {
             "dmstr\\": ""
-        }
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "2.0.x-dev"
         }
     }
 }
