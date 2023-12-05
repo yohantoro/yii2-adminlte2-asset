@@ -19,7 +19,7 @@
         "cebe/yii2-gravatar": "1.*",
         "almasaeed2010/adminlte": "^2.4.0",
         "rmrevin/yii2-fontawesome": "~2.9",
-        "yohantoro/yii2/bootstrap3": "*"
+        "yohantoro/yii2-bootstrap3": "*"
     },
     "autoload": {
         "psr-4": {
