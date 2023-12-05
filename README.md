@@ -18,16 +18,10 @@ Installation
 
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
 
-To install AdminLTE v2 run:
+To install AdminLTE run:
 
 ```
-composer require dmstr/yii2-adminlte-asset "^2.1"
-```
-
-To install AdminLTE v1 run:
-
-```
-composer require dmstr/yii2-adminlte-asset "^1"
+composer yohantoro/yii2-adminlte-asset "*"
 ```
 
 FAQ
