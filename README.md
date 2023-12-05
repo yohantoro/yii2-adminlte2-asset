@@ -67,7 +67,7 @@ For Yii 2 [Advanced Application Template](https://github.com/yiisoft/yii2-app-ad
     'view' => [
          'theme' => [
              'pathMap' => [
-                '@app/views' => '@vendor/dmstr/yii2-adminlte-asset/example-views/yiisoft/yii2-app'
+                '@app/views' => '@vendor/yohantoro/yii2-adminlte-asset/example-views/yiisoft/yii2-app'
              ],
          ],
     ],
@@ -82,7 +82,7 @@ For [phd5](https://github.com/dmstr/phd5-app) application
     'view' => [
         'theme' => [
             'pathMap' => [
-                '@app/views' => '@vendor/dmstr/yii2-adminlte-asset/example-views/testing/app'
+                '@app/views' => '@vendor/yohantoro/yii2-adminlte-asset/example-views/testing/app'
             ],
         ],
     ],
@@ -248,7 +248,7 @@ if (YII_ENV_DEV) {
             'crud' => [
                 'class' => 'yii\gii\generators\crud\Generator',
                 'templates' => [
-                    'adminlte' => '@vendor/dmstr/yii2-adminlte-asset/gii/templates/crud/simple',
+                    'adminlte' => '@vendor/yohantoro/yii2-adminlte-asset/gii/templates/crud/simple',
                 ]
             ]
         ],
