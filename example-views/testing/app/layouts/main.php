@@ -1,11 +1,11 @@
 <?php
-use dmstr\widgets\Alert;
+use yohantoro\adminlte2\widgets\Alert;
 use yii\helpers\Html;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
 $this->title = $this->title . ' [Backend]';
-dmstr\web\AdminLteAsset::register($this);
+yohantoro\adminlte2\web\AdminLteAsset::register($this);
 ?>
 
 <?php $this->beginPage() ?>

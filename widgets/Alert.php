@@ -5,7 +5,7 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace dmstr\widgets;
+namespace yohantoro\adminlte2\widgets;
 
 use yohantoro\yii2\bootstrap3\Alert as BootstrapAlert;
 use yohantoro\yii2\bootstrap3\Widget;

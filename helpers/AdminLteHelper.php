@@ -1,5 +1,5 @@
 <?php
-namespace dmstr\helpers;
+namespace yohantoro\adminlte2\helpers;
 
 use Yii;
 
@@ -15,8 +15,8 @@ class AdminLteHelper
      */
     public static function skinClass()
     {
-        /** @var \dmstr\web\AdminLteAsset $bundle */
-        $bundle = Yii::$app->assetManager->getBundle('dmstr\web\AdminLteAsset');
+        /** @var \yohantoro\adminlte2\web\AdminLteAsset $bundle */
+        $bundle = Yii::$app->assetManager->getBundle('yohantoro\adminlte2\web\AdminLteAsset');
 
         return $bundle->skin;
     }
