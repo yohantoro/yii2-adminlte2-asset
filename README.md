@@ -1,10 +1,7 @@
+### <code>This is modified forked version of AdminLTE Asset Bundle. For latest update, please go to [https://github.com/dmstr/yii2-adminlte-asset](https://github.com/dmstr/yii2-adminlte-asset) instead</code>
+
 AdminLTE Asset Bundle
 =====================
-
-[![Latest Stable Version](https://poser.pugx.org/dmstr/yii2-adminlte-asset/v/stable.svg)](https://packagist.org/packages/dmstr/yii2-adminlte-asset) 
-[![Total Downloads](https://poser.pugx.org/dmstr/yii2-adminlte-asset/downloads.svg)](https://packagist.org/packages/dmstr/yii2-adminlte-asset)
-[![License](https://poser.pugx.org/dmstr/yii2-adminlte-asset/license.svg)](https://packagist.org/packages/dmstr/yii2-adminlte-asset)
-
 
 *Backend UI for Yii2 Framework, based on [AdminLTE](https://github.com/almasaeed2010/AdminLTE)*
 
