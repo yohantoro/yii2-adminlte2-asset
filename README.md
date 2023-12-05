@@ -48,7 +48,7 @@ For details see [#140](https://github.com/dmstr/yii2-adminlte-asset/issues/140).
 
 ### Upgrading
 
-When upgrading please see the [AdminLTE upgrade guide](https://adminlte.io/docs/3.0/upgrade-guide.html) for adjustments you need to make in your views.
+When upgrading please see the [AdminLTE upgrade guide](https://adminlte.io/docs/2.4/upgrade-guide) for adjustments you need to make in your views.
 
 ### Composer installation
 
@@ -56,11 +56,10 @@ When upgrading please see the [AdminLTE upgrade guide](https://adminlte.io/docs/
 
 ### Compatibility matrix
 
-| yii2-adminlte-asset | AdminLTE | Font Awesome
-|---|---|---|
-| 2.4 | 2.0 - 2.3 | required
-| 2.5 | 2.4 | required
-| 3.0 | 2.4 | -
+| yii2-adminlte-asset | AdminLTE |
+|---|---|
+| 2.4 | 2.0 - 2.3 |
+| 2.5 | 2.4 |
 
 > For other [issues](https://github.com/dmstr/yii2-adminlte-asset/issues?utf8=%E2%9C%93&q=is%3Aissue), please search GitHub first.
 
@@ -113,7 +112,7 @@ Customization
 
 ### AdminLTE Plugins
 
-Assets for [AdminLTE plugins](https://adminlte.io/docs/3.0/dependencies.html#plugins) are not included
+Assets for [AdminLTE plugins](https://almsaeedstudio.com/themes/AdminLTE/documentation/index.html#plugins) are not included
 in our `AdminLteAsset` but you can find these files in your vendor directory under `vendor/almasaeed2010/adminlte/plugins`.
 So if you want to use any of them we recommend to create a custom bundle where you list the plugin files you need:
 
@@ -123,16 +122,16 @@ use yii\web\AssetBundle;
 class AdminLtePluginAsset extends AssetBundle
 {
     public $sourcePath = '@vendor/almasaeed2010/adminlte/plugins';
-    public $css = [
-        'chart.js/Chart.min.css',
-        // more plugin CSS here
-    ];
     public $js = [
-        'chart.js/Chart.bundle.min.js'
+        'datatables/dataTables.bootstrap.min.js',
         // more plugin Js here
     ];
+    public $css = [
+        'datatables/dataTables.bootstrap.css',
+        // more plugin CSS here
+    ];
     public $depends = [
-        'dmstr\adminlte\web\AdminLteAsset',
+        'dmstr\web\AdminLteAsset',
     ];
 }
 ```
@@ -141,7 +140,54 @@ As this asset depends on our `AdminLteAsset` it's the only asset you have to reg
 your `main.php` layout file.
 
 
-### Custom content header
+### Skins
+
+By default the extension uses blue skin for AdminLTE. You can change it in config file.
+
+```php
+'components' => [
+    'assetManager' => [
+        'bundles' => [
+            'dmstr\web\AdminLteAsset' => [
+                'skin' => 'skin-black',
+            ],
+        ],
+    ],
+],
+```
+
+And then just replace class of body `skin-blue`. You can use `AdminLteHelper::skinClass()` if you don't want to alter every view file when you change skin color. 
+```html
+<body class="<?= \dmstr\helpers\AdminLteHelper::skinClass() ?>">
+```
+
+**Note:** Use `AdminLteHelper::skinClass()` only if you override the skin through configuration. Otherwise you will not get the correct css class of body.
+
+Here is the list of available skins:
+
+```
+"skin-blue",
+"skin-black",
+"skin-red",
+"skin-yellow",
+"skin-purple",
+"skin-green",
+"skin-blue-light",
+"skin-black-light",
+"skin-red-light",
+"skin-yellow-light",
+"skin-purple-light",
+"skin-green-light"
+```
+
+#### Disabling skin file loading, when using bundled assets
+
+    Yii::$container->set(
+        AdminLteAsset::className(),
+        [
+            'skin' => false,
+        ]
+    );
 
 If you want to use native DOM of headers AdminLTE
 
@@ -154,7 +200,7 @@ If you want to use native DOM of headers AdminLTE
 then you can follow the code:
 
 ```php
-/* @var yii\web\View $this */
+/* @var $this yii\web\View */
 
 $this->params['breadcrumbs'][] = 'About';
 
@@ -170,44 +216,44 @@ About <small>static page</small>
 
 ### Left sidebar menu - Widget Menu
 
-If you need to separate sections of the menu then just add the `header` option to item in `items`
+If you need to separate sections of the menu then just add the `li.header` item to `items`
 ```php
     'items' => [
-        ['label' => 'Gii', 'iconType' => 'far' 'icon' => 'file-code', 'url' => ['/gii']],
-        ['label' => 'Debug', 'icon' => 'dashboard-alt', 'url' => ['/debug']],
-        ['label' => 'MAIN NAVIGATION', 'header' => true], // here
+        ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
+        ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
+        ['label' => 'MAIN NAVIGATION', 'options' => ['class' => 'header']], // here
         // ... a group items
-        ['label' => '', 'header' => true],
+        ['label' => '', 'options' => ['class' => 'header']],
         // ... a group items
-        ['label' => '', 'header' => true],
+        ['label' => '', 'options' => ['class' => 'header']],
         // ... a group items
 ```
 
-To add a badge for a item:
+To add a label for a item:
 
 ```php
 'items' => [
     [
         'label' => 'Mailbox',
-        'iconType' => 'far',
-        'icon' => 'envelope',
+        'icon' => 'envelope-o',
         'url' => ['/mailbox'],
-        'badge' => '<span class="badge badge-info right">123</span>'
+        'template'=>'<a href="{url}">{icon} {label}<span class="pull-right-container"><small class="label pull-right bg-yellow">123</small></span></a>'
     ],
 ]
 ```
 
-By default to icons will be added prefix of [Font Awesome](https://fontawesome.com/)
+By default to icons will be added prefix of [Font Awesome](http://fontawesome.io/)
 
 ### Template for Gii CRUD generator
 
 Tell Gii about our template. The setting is made in the config file:
 
 ```php
-if (YII_ENV_DEV) {
+if (YII_ENV_DEV) {    
     $config['modules']['gii'] = [
-        'class' => 'yii\gii\Module',
-        'generators' => [ // HERE
+        'class' => 'yii\gii\Module',      
+        'allowedIPs' => ['127.0.0.1', '::1', '192.168.0.*', '192.168.178.20'],  
+        'generators' => [ //here
             'crud' => [
                 'class' => 'yii\gii\generators\crud\Generator',
                 'templates' => [
@@ -242,5 +288,5 @@ Further Information
 
 For AdminLTE documentation, please read https://almsaeedstudio.com/themes/AdminLTE/documentation/index.html
 
-> Namespacing rules follow the Yii 2.0 framework structure, eg. `dmstr\adminlte\web` for the Asset Bundle.
+> Namespacing rules follow the Yii 2.0 framework structure, eg. `dmstr\web` for the Asset Bundle.
  
