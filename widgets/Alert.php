@@ -5,7 +5,7 @@
  * @license http://www.yiiframework.com/license/
  */
 
-namespace dmstr\widgets;
+namespace dmstr\adminlte\widgets;
 
 use yohantoro\yii2\bootstrap3\Alert as BootstrapAlert;
 use yohantoro\yii2\bootstrap3\Widget;
@@ -39,23 +39,23 @@ class Alert extends Widget
     public $alertTypes = [
         'error' => [
             'class' => 'alert-danger',
-            'icon' => '<i class="icon fa fa-ban"></i>',
+            'icon' => '<i class="icon fas fa-ban"></i>',
         ],
         'danger' => [
             'class' => 'alert-danger',
-            'icon' => '<i class="icon fa fa-ban"></i>',
+            'icon' => '<i class="icon fas fa-ban"></i>',
         ],
         'success' => [
             'class' => 'alert-success',
-            'icon' => '<i class="icon fa fa-check"></i>',
+            'icon' => '<i class="icon fas fa-check"></i>',
         ],
         'info' => [
             'class' => 'alert-info',
-            'icon' => '<i class="icon fa fa-info"></i>',
+            'icon' => '<i class="icon fas fa-info"></i>',
         ],
         'warning' => [
             'class' => 'alert-warning',
-            'icon' => '<i class="icon fa fa-warning"></i>',
+            'icon' => '<i class="icon fas fa-exclamation-triangle"></i>',
         ],
     ];
 
